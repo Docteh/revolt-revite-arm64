@@ -51,6 +51,8 @@ jobs:
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          annotations: |
+            org.opencontainers.image.description=Test description
         env:
           DOCKER_METADATA_ANNOTATIONS_LEVELS: manifest,index
       # This step uses the `docker/build-push-action` action to build the image, based on your repository's `Dockerfile`. If the build succeeds, it pushes the image to GitHub Packages.
